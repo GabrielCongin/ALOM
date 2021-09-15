@@ -26,10 +26,7 @@ public class Session implements Runnable {
         try {
             Request request = new Request(socket);
             RequestAnalyzer requestAnalyzer = new RequestAnalyzer();
-            ServletRequestHandler servletRequestHandler = new ServletRequestHandler();
-            //requestAnalyzer.handleRequest(request);
-            servletRequestHandler.handleRequest(request);
-
+            requestAnalyzer.handleRequest(request);
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();

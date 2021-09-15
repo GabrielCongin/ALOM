@@ -13,6 +13,8 @@ public class RequestAnalyzer {
 	/** implicit contract: must not be null */
 	private FileRequestHandler rh = new FileRequestHandler();
 
+	private ServletRequestHandler servletRequestHandler = new ServletRequestHandler();
+
 	/**
 	 * implicit contract: may be null protected by if (l != null) below
 	 */
@@ -42,6 +44,7 @@ public class RequestAnalyzer {
 			// Removing TypeRequest, space and the first /
 			r.url = rq.substring(firstSpace+2, rq.indexOf(' ', firstSpace+1));
 			rh.handleRequest(r);
+			//servletRequestHandler.handleRequest(r);
 		} else {
 			throw new CanNotCompleteTheRequestException("Invalid request : "+rq);
 		}
